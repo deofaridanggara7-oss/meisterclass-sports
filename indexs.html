@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Meisterclass.sport — Platform Pelatih Profesional Bandung</title>
+<meta name="description" content="Platform marketplace pelatih olahraga terpercaya di Bandung. Temukan pelatih futsal, renang, badminton, tenis, lari dan lebih banyak lagi."/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+
+<!-- ============================================================
+     ✏️  PANDUAN EDIT CEPAT — BACA INI DULU!
+     ============================================================
+     Untuk mengubah konten website, cari teks di bawah ini:
+
+     DATA BISNIS:
+     - Nomor WA   : cari "6285859954101"   → ganti nomor kamu
+     - Instagram  : cari "MeisterClass.Sport" → ganti username
+     - Email      : cari "info@meisterclass.id" → ganti email
+     - Kota       : cari "Bandung" → ganti kota kamu
+
+     TAMBAH PELATIH BARU:
+     - Cari bagian "DATA PELATIH" di bawah
+     - Copy salah satu blok pelatih & ubah isinya
+
+     HARGA PAKET:
+     - Cari "Rp250" → ubah harga paket Pro
+     ============================================================ -->
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#080a0d;--dark:#0f1318;--card:#141920;
+  --border:rgba(255,255,255,0.07);--gold:#e8b84b;--gold-light:#f5d07a;
+  --green:#3ddc84;--white:#f4f0e8;--muted:#7a8294;
+  --font-d:'Bebas Neue',sans-serif;--font-b:'DM Sans',sans-serif;--font-u:'Syne',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-b);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* CURSOR */
+.cur{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:transform .1s}
+.cur2{width:32px;height:32px;border:1px solid var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;opacity:.4;transition:all .12s}
+body{cursor:none}
+
+/* UTILS */
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--black);font-family:var(--font-u);font-weight:700;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;padding:15px 32px;border-radius:4px;transition:all .3s;border:none;cursor:none}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 16px 40px rgba(232,184,75,.3)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;color:var(--white);font-family:var(--font-u);font-weight:600;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;padding:15px 24px;border:1px solid var(--border);border-radius:4px;transition:all .3s;background:transparent;cursor:none}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.lbl{font-family:var(--font-u);font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px}
+.ttl{font-family:var(--font-d);font-size:clamp(36px,5vw,62px);line-height:1;letter-spacing:1px}
+.ttl em{color:var(--gold);font-style:normal}
+.reveal{opacity:0;transform:translateY(36px);transition:all .8s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 60px;transition:all .3s;background:linear-gradient(to bottom,rgba(8,10,13,.96),transparent);backdrop-filter:blur(10px)}
+nav.scrolled{background:rgba(8,10,13,.98);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--font-d);font-size:1.5rem;letter-spacing:2px}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-family:var(--font-u);font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold)!important;color:var(--black)!important;padding:9px 22px;border-radius:4px;font-weight:700!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+.hamburger{display:none;background:none;border:none;color:var(--white);font-size:1.4rem;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 60px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;font-family:var(--font-d);font-size:clamp(100px,18vw,260px);color:transparent;-webkit-text-stroke:1px rgba(232,184,75,.06);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;user-select:none;letter-spacing:8px;animation:fl 8s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-52%) scale(1.01)}}
+.hero-dot-grid{position:absolute;right:80px;top:50%;transform:translateY(-50%);display:grid;grid-template-columns:repeat(7,1fr);gap:14px;opacity:.08}
+.hero-dot-grid span{width:3px;height:3px;background:var(--gold);border-radius:50%;display:block;animation:dp 3s ease-in-out infinite}
+.hero-dot-grid span:nth-child(odd){animation-delay:.5s}
+@keyframes dp{0%,100%{opacity:.3}50%{opacity:1}}
+.hero-content{position:relative;z-index:2;max-width:820px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,184,75,.08);border:1px solid rgba(232,184,75,.18);border-radius:100px;padding:6px 16px 6px 8px;margin-bottom:30px}
+.badge-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pls 2s infinite}
+@keyframes pls{0%,100%{box-shadow:0 0 0 0 rgba(61,220,132,.4)}50%{box-shadow:0 0 0 6px rgba(61,220,132,0)}}
+.badge-txt{font-family:var(--font-u);font-size:.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-family:var(--font-d);font-size:clamp(58px,9vw,112px);line-height:.95;letter-spacing:2px}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{margin-top:26px;font-size:1.1rem;color:var(--muted);max-width:480px;line-height:1.75;font-weight:300}
+.hero-btns{margin-top:44px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero-stats{margin-top:60px;display:flex;gap:44px;flex-wrap:wrap}
+.stat-n{font-family:var(--font-d);font-size:2.6rem;color:var(--gold);letter-spacing:1px}
+.stat-l{font-size:.72rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+.stat-div{width:1px;background:var(--border)}
+
+/* TICKER */
+.ticker{background:var(--gold);padding:11px 0;overflow:hidden}
+.ticker-inner{display:flex;animation:tick 22s linear infinite;white-space:nowrap}
+.t-item{display:inline-flex;align-items:center;gap:18px;font-family:var(--font-d);font-size:.95rem;letter-spacing:2px;color:var(--black);padding:0 36px}
+.t-dot{width:5px;height:5px;background:var(--black);border-radius:50%;flex-shrink:0}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HOW */
+.how{padding:110px 60px;background:var(--dark)}
+.how-hd{max-width:580px;margin-bottom:72px}
+.how-sub{color:var(--muted);margin-top:14px;font-size:.95rem;line-height:1.7}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)}
+.step{background:var(--dark);padding:44px 32px;position:relative;overflow:hidden;transition:background .3s}
+.step:hover{background:var(--card)}
+.step-n{font-family:var(--font-d);font-size:4.5rem;color:rgba(232,184,75,.07);position:absolute;top:-8px;right:16px;line-height:1}
+.step-ic{width:46px;height:46px;background:rgba(232,184,75,.09);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:22px;transition:background .3s}
+.step:hover .step-ic{background:rgba(232,184,75,.18)}
+.step-t{font-family:var(--font-u);font-size:1rem;font-weight:700;margin-bottom:10px}
+.step-d{color:var(--muted);font-size:.87rem;line-height:1.6}
+
+/* COACHES */
+.coaches{padding:110px 60px;background:var(--dark)}
+.coaches-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:20px;flex-wrap:wrap}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cc{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .4s;cursor:pointer}
+.cc:hover{transform:translateY(-8px);border-color:rgba(232,184,75,.2);box-shadow:0 24px 48px rgba(0,0,0,.35)}
+.cc-top{height:150px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;position:relative}
+.cc-stag{position:absolute;top:10px;right:10px;background:rgba(8,10,13,.82);border:1px solid var(--border);border-radius:4px;padding:3px 9px;font-size:.62rem;color:var(--muted);font-family:var(--font-u);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.cc-body{padding:18px}
+.cc-name{font-family:var(--font-u);font-weight:800;font-size:.97rem}
+.cc-title{color:var(--muted);font-size:.77rem;margin-top:2px}
+.cc-rat{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:.78rem}
+.cc-rat-n{color:var(--gold);font-weight:700}
+.cc-rev{color:var(--muted)}
+.cc-ft{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.cc-pr{font-family:var(--font-u);font-weight:700;font-size:.88rem}
+.cc-prl{color:var(--muted);font-size:.68rem}
+.bk-btn{background:rgba(232,184,75,.09);border:1px solid rgba(232,184,75,.2);color:var(--gold);border-radius:5px;padding:7px 14px;font-family:var(--font-u);font-size:.72rem;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .3s;text-transform:uppercase;text-decoration:none;display:inline-block}
+.bk-btn:hover{background:var(--gold);color:var(--black)}
+
+/* SPORTS */
+.sports{padding:110px 60px;text-align:center}
+.sports-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-top:56px}
+.sp{background:var(--card);border:1px solid var(--border);border-radius:100px;padding:13px 18px;display:flex;align-items:center;gap:9px;cursor:pointer;transition:all .3s;font-family:var(--font-u);font-size:.78rem;font-weight:600;justify-content:center}
+.sp:hover{background:rgba(232,184,75,.07);border-color:rgba(232,184,75,.28);color:var(--gold)}
+
+/* FEATURES */
+.feats{padding:110px 60px}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:72px}
+.feat-list{display:flex;flex-direction:column;gap:4px}
+.fi{padding:22px;border:1px solid transparent;border-radius:8px;cursor:pointer;transition:all .3s}
+.fi:hover,.fi.on{background:var(--card);border-color:var(--border)}
+.fi.on{border-left:3px solid var(--gold)}
+.fi-hd{display:flex;align-items:center;gap:12px;margin-bottom:7px}
+.fi-ic{width:34px;height:34px;background:rgba(232,184,75,.09);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.fi-t{font-family:var(--font-u);font-weight:700;font-size:.92rem}
+.fi-d{color:var(--muted);font-size:.83rem;line-height:1.6;padding-left:46px}
+.feat-vis{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:36px;min-height:400px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.feat-vis::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(232,184,75,.04),transparent 60%)}
+
+/* Coach card mockup */
+.mock-card{width:100%;max-width:300px;background:var(--dark);border-radius:11px;overflow:hidden;box-shadow:0 28px 56px rgba(0,0,0,.45)}
+.mock-hd{height:130px;background:linear-gradient(135deg,rgba(232,184,75,.18),rgba(232,184,75,.04));display:flex;align-items:flex-end;padding:14px}
+.mock-av{width:58px;height:58px;background:var(--gold);border-radius:50%;border:3px solid var(--dark);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:1.4rem;color:var(--black)}
+.mock-body{padding:14px}
+.mock-name{font-family:var(--font-u);font-weight:700;font-size:.95rem}
+.mock-sport{color:var(--gold);font-size:.7rem;letter-spacing:1px;margin-top:2px}
+.mock-tags{display:flex;gap:7px;margin-top:10px}
+.tg{background:rgba(255,255,255,.05);border-radius:4px;padding:3px 9px;font-size:.68rem;color:var(--muted)}
+.mock-stars{color:var(--gold);font-size:.82rem;margin-top:10px}
+.vbdg{display:inline-flex;align-items:center;gap:4px;background:rgba(61,220,132,.09);border:1px solid rgba(61,220,132,.2);border-radius:4px;padding:3px 8px;font-size:.62rem;color:var(--green);font-family:var(--font-u);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:7px}
+.mock-ft{border-top:1px solid var(--border);padding:11px 14px;display:flex;justify-content:space-between;align-items:center}
+
+/* Progress mockup */
+.prog-wrap{width:100%;max-width:320px}
+.prog-hd{font-family:var(--font-u);font-weight:700;font-size:.83rem;margin-bottom:18px}
+.prog-item{margin-bottom:14px}
+.prog-lbl{display:flex;justify-content:space-between;font-size:.72rem;margin-bottom:5px}
+.prog-lbl span:last-child{color:var(--gold);font-weight:700}
+.prog-bar{height:5px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:10px;animation:pgr 1.5s ease both}
+@keyframes pgr{from{width:0}}
+.prog-ms{margin-top:20px;padding:14px;background:rgba(61,220,132,.05);border:1px solid rgba(61,220,132,.14);border-radius:8px}
+.prog-ms-t{font-family:var(--font-u);font-weight:700;font-size:.78rem;color:var(--green)}
+.prog-ms-s{color:var(--muted);font-size:.72rem;margin-top:3px}
+
+/* PRICING */
+.pricing{padding:110px 60px;background:var(--dark)}
+.pricing-hd{text-align:center;margin-bottom:72px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:0 auto}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:38px 34px;position:relative;transition:all .3s}
+.pc.hot{border-color:var(--gold);background:linear-gradient(135deg,rgba(232,184,75,.07),var(--card))}
+.pc-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--black);font-family:var(--font-u);font-weight:800;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;padding:4px 15px;border-radius:100px}
+.pc-plan{font-family:var(--font-u);font-weight:800;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.pc-price{font-family:var(--font-d);font-size:3.3rem;line-height:1}
+.pc-price sub{font-family:var(--font-b);font-size:.87rem;color:var(--muted);vertical-align:middle}
+.pc-per{color:var(--muted);font-size:.78rem;margin-top:4px}
+.pc-feats{margin-top:28px;display:flex;flex-direction:column;gap:11px}
+.pcf{display:flex;align-items:center;gap:9px;font-size:.83rem;color:var(--muted)}
+.pcf-ck{color:var(--green)}
+.pc-cta{margin-top:32px;display:block;text-align:center;background:transparent;border:1px solid var(--border);color:var(--white);font-family:var(--font-u);font-weight:700;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;padding:13px;border-radius:7px;transition:all .3s;cursor:pointer;text-decoration:none}
+.pc-cta:hover{border-color:var(--white);color:var(--white)}
+.pc.hot .pc-cta{background:var(--gold);border-color:var(--gold);color:var(--black)}
+.pc.hot .pc-cta:hover{background:var(--gold-light)}
+
+/* TESTIMONIALS */
+.testi{padding:110px 60px;text-align:center}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.tc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:30px;transition:all .3s;text-align:left}
+.tc:hover{border-color:rgba(232,184,75,.14);transform:translateY(-4px)}
+.tc-stars{color:var(--gold);font-size:.87rem;margin-bottom:14px}
+.tc-txt{color:var(--muted);font-size:.87rem;line-height:1.7;margin-bottom:22px;font-style:italic}
+.tc-auth{display:flex;align-items:center;gap:11px}
+.tc-av{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),rgba(232,184,75,.35));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:.95rem;color:var(--black);flex-shrink:0}
+.tc-name{font-family:var(--font-u);font-weight:700;font-size:.83rem}
+.tc-sport{color:var(--muted);font-size:.72rem}
+
+/* CTA */
+.cta-sec{padding:110px 60px;background:var(--dark);text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(232,184,75,.05),transparent 65%)}
+.cta-content{position:relative;z-index:2}
+.cta-ttl{font-family:var(--font-d);font-size:clamp(46px,8vw,96px);line-height:.95;letter-spacing:2px}
+.cta-ttl em{color:var(--gold);font-style:normal}
+.cta-sub{color:var(--muted);font-size:1.05rem;max-width:480px;margin:22px auto 0;line-height:1.7}
+.cta-form{display:flex;max-width:460px;margin:44px auto 0}
+.cta-input{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--border);border-right:none;border-radius:6px 0 0 6px;padding:15px 18px;color:var(--white);font-family:var(--font-b);font-size:.88rem;outline:none;transition:border-color .3s}
+.cta-input:focus{border-color:var(--gold)}
+.cta-input::placeholder{color:var(--muted)}
+.cta-btn{background:var(--gold);color:var(--black);border:none;padding:15px 26px;border-radius:0 6px 6px 0;font-family:var(--font-u);font-weight:700;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background .3s;white-space:nowrap}
+.cta-btn:hover{background:var(--gold-light)}
+.cta-nums{display:flex;justify-content:center;gap:40px;margin-top:56px;flex-wrap:wrap}
+.cn-n{font-family:var(--font-d);font-size:2.4rem;color:var(--gold)}
+.cn-l{color:var(--muted);font-size:.72rem;letter-spacing:1px;text-transform:uppercase}
+
+/* FOOTER */
+footer{background:var(--black);padding:56px 60px;border-top:1px solid var(--border)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:56px}
+.ft-logo{font-family:var(--font-d);font-size:1.7rem;letter-spacing:2px;display:block;margin-bottom:14px}
+.ft-logo span{color:var(--gold)}
+.ft-desc{color:var(--muted);font-size:.83rem;line-height:1.7;max-width:270px}
+.ft-socials{display:flex;gap:11px;margin-top:22px}
+.soc{width:34px;height:34px;background:var(--card);border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.82rem;transition:all .3s;color:var(--muted);text-decoration:none}
+.soc:hover{border-color:var(--gold);color:var(--gold)}
+.ft-col-t{font-family:var(--font-u);font-weight:700;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+.ft-links{display:flex;flex-direction:column;gap:9px}
+.ft-links a{color:var(--muted);font-size:.83rem;transition:color .3s}
+.ft-links a:hover{color:var(--gold)}
+.ft-bot{padding-top:28px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.ft-copy{color:var(--muted);font-size:.78rem}
+.ft-legal{display:flex;gap:22px}
+.ft-legal a{color:var(--muted);font-size:.78rem;transition:color .3s}
+.ft-legal a:hover{color:var(--gold)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--dark);border:1px solid var(--border);border-radius:16px;padding:40px;max-width:480px;width:100%;position:relative;animation:mIn .3s ease}
+@keyframes mIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;transition:color .3s}
+.modal-close:hover{color:var(--gold)}
+.modal-emoji{font-size:2.5rem;margin-bottom:16px;display:block}
+.modal-name{font-family:var(--font-d);font-size:2rem;letter-spacing:1px;margin-bottom:4px}
+.modal-sport{color:var(--gold);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.modal-info{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.modal-tag{background:rgba(255,255,255,.06);border-radius:4px;padding:5px 11px;font-size:.72rem;color:var(--muted)}
+.modal-desc{color:var(--muted);font-size:.87rem;line-height:1.7;margin-bottom:28px}
+.modal-price{font-family:var(--font-d);font-size:2.2rem;color:var(--white);margin-bottom:4px}
+.modal-perlbl{color:var(--muted);font-size:.78rem;margin-bottom:24px}
+.modal-wa{display:block;width:100%;text-align:center;background:var(--gold);color:var(--black);font-family:var(--font-u);font-weight:800;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;padding:16px;border-radius:8px;transition:all .3s;text-decoration:none}
+.modal-wa:hover{background:var(--gold-light)}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:14px 24px}
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(8,10,13,.98);padding:20px 24px;gap:16px;border-top:1px solid var(--border)}
+  .hero{padding:100px 24px 60px}
+  .hero-dot-grid{display:none}
+  .stat-div{display:none}
+  .how,.coaches,.sports,.feats,.pricing,.testi,.cta-sec{padding:80px 24px}
+  .steps{grid-template-columns:1fr 1fr}
+  .grid4{grid-template-columns:1fr 1fr}
+  .sports-grid{grid-template-columns:repeat(3,1fr)}
+  .feat-grid{grid-template-columns:1fr;gap:36px}
+  .pricing-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  footer{padding:56px 24px}
+  .ft-grid{grid-template-columns:1fr;gap:36px}
+  .ft-bot{flex-direction:column;text-align:center}
+}
+@media(max-width:500px){
+  .steps{grid-template-columns:1fr}
+  .grid4{grid-template-columns:1fr}
+  .sports-grid{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:52px}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cur" id="cur"></div>
+<div class="cur2" id="cur2"></div>
+
+<!-- ==============================
+     ⚙️ DATA BISNIS — EDIT DI SINI
+     ============================== -->
+<script>
+// ✏️ EDIT DATA BISNIS KAMU DI SINI:
+const BISNIS = {
+  wa:        "6285859954101",          // Nomor WhatsApp (tanpa +)
+  instagram: "MeisterClass.Sport",     // Username Instagram
+  email:     "info@meisterclass.id",   // Email bisnis
+  kota:      "Bandung",                // Kota
+  nama:      "Deo Farid Anggara",      // Nama founder
+};
+
+// ✏️ DATA PELATIH — Tambah / Edit pelatih di sini:
+const PELATIH = [
+  {
+    nama:       "Ahmad Rizky F.",
+    judul:      "Eks Pemain Liga 2 Indonesia • 8 Tahun Melatih",
+    olahraga:   "FUTSAL",
+    emoji:      "⚽",
+    harga:      "Rp 250.000",
+    rating:     "4.9",
+    ulasan:     "204",
+    lokasi:     "Bandung Selatan",
+    wa:         "6285859954101",    // WA khusus coach ini (boleh sama dgn bisnis)
+    deskripsi:  "Pelatih futsal berpengalaman dengan track record melatih 200+ atlet. Spesialisasi teknik dasar, taktik tim, dan mental bertanding. Tersedia sesi privat & grup.",
+    warna:      "rgba(232,184,75,0.15)",
+  },
+  {
+    nama:       "Sari Dewi A.",
+    judul:      "Atlet Nasional • Pelatih Bersertifikat PRSI",
+    olahraga:   "RENANG",
+    emoji:      "🏊",
+    harga:      "Rp 300.000",
+    rating:     "5.0",
+    ulasan:     "89",
+    lokasi:     "Bandung Utara",
+    wa:         "6285859954101",
+    deskripsi:  "Mantan atlet renang nasional dengan sertifikasi resmi PRSI. Mengajar dari usia 5 tahun hingga dewasa. Metode pengajaran fun dan efektif untuk semua level.",
+    warna:      "rgba(61,220,132,0.1)",
+  },
+  {
+    nama:       "Budi Santoso",
+    judul:      "Lisensi BWF Level 2 • 10 Tahun Pengalaman",
+    olahraga:   "BADMINTON",
+    emoji:      "🏸",
+    harga:      "Rp 200.000",
+    rating:     "4.8",
+    ulasan:     "156",
+    lokasi:     "Bandung Tengah",
+    wa:         "6285859954101",
+    deskripsi:  "Pelatih badminton bersertifikat BWF dengan pengalaman 10 tahun. Cocok untuk pemula hingga kompetitor. Fokus pada teknik footwork, pukulan, dan strategi pertandingan.",
+    warna:      "rgba(100,120,255,0.1)",
+  },
+  {
+    nama:       "Kevin Pratama",
+    judul:      "Juara Nasional 2019 • Personal & Group Training",
+    olahraga:   "BOXING",
+    emoji:      "🥊",
+    harga:      "Rp 350.000",
+    rating:     "4.9",
+    ulasan:     "317",
+    lokasi:     "Bandung Barat",
+    wa:         "6285859954101",
+    deskripsi:  "Juara tinju nasional 2019 yang kini fokus sebagai pelatih profesional. Program latihan mencakup teknik, kondisi fisik, dan mental juara.",
+    warna:      "rgba(255,100,100,0.1)",
+  },
+];
+
+// ✏️ OLAHRAGA YANG TERSEDIA:
+const OLAHRAGA = [
+  ["⚽","Futsal"],["🏊","Renang"],["🏸","Badminton"],
+  ["🎾","Tenis"],["🏃","Lari"],["🥊","Boxing"],
+  ["🧘","Yoga"],["🏀","Basket"],["🤸","Gimnastik"],["🚴","Cycling"],
+];
+
+// ✏️ HARGA PAKET:
+const HARGA = {
+  pro: "Rp250",  // Harga paket Pro (rb/bln)
+};
+</script>
+
+<!-- ==================== NAV ==================== -->
+<nav id="nav">
+  <div class="logo">MEISTER<span>CLASS</span>.SPORT</div>
+  <button class="hamburger" id="hamburger">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#howit">Cara Kerja</a></li>
+    <li><a href="#features">Fitur</a></li>
+    <li><a href="#coaches">Pelatih</a></li>
+    <li><a href="#pricing">Harga</a></li>
+    <li id="nav-cta-li"></li>
+  </ul>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-bg">MEISTER</div>
+  <div class="hero-dot-grid" id="dotGrid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <span class="badge-txt">Platform Pelatih #1 <span id="hero-kota">Bandung</span></span>
+    </div>
+    <h1>TEMUKAN <em>PELATIH</em><br>TERBAIKMU</h1>
+    <p class="hero-sub">Platform marketplace eksklusif yang menghubungkan Anda dengan pelatih olahraga terverifikasi di <span class="hero-kota-ref">Bandung</span>. Sesi privat, online, atau grup — sesuai jadwal dan budget Anda.</p>
+    <div class="hero-btns">
+      <a id="hero-cta" href="#" target="_blank" class="btn-gold">🚀 Cari Pelatih Sekarang</a>
+      <a href="#howit" class="btn-outline">▶ Cara Kerja</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">500+</div><div class="stat-l">Coach Verified</div></div>
+      <div class="stat-div"></div>
+      <div><div class="stat-n">30+</div><div class="stat-l">Cabang Olahraga</div></div>
+      <div class="stat-div"></div>
+      <div><div class="stat-n">10K+</div><div class="stat-l">Sesi Terlaksana</div></div>
+      <div class="stat-div"></div>
+      <div><div class="stat-n">4.9★</div><div class="stat-l">Rating Rata-rata</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TICKER ==================== -->
+<div class="ticker" aria-hidden="true"><div class="ticker-inner" id="ticker"></div></div>
+
+<!-- ==================== HOW IT WORKS ==================== -->
+<section class="how" id="howit">
+  <div class="how-hd reveal">
+    <span class="lbl">Cara Kerja</span>
+    <h2 class="ttl">MULAI LATIHAN<br>DALAM <em>3 LANGKAH</em></h2>
+    <p class="how-sub">Dari mendaftar hingga sesi pertama — semudah memesan makanan online.</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><div class="step-n">01</div><div class="step-ic">🔍</div><div class="step-t">Pilih Pelatih</div><p class="step-d">Filter berdasarkan olahraga, lokasi, harga, dan jadwal. Lihat profil dan ulasan nyata dari klien.</p></div>
+    <div class="step reveal d1"><div class="step-n">02</div><div class="step-ic">📅</div><div class="step-t">Booking Sesi</div><p class="step-d">Pilih waktu dan format — tatap muka, online, atau hybrid. Bayar dengan metode pilihan Anda.</p></div>
+    <div class="step reveal d2"><div class="step-n">03</div><div class="step-ic">🏃</div><div class="step-t">Mulai Berlatih</div><p class="step-d">Sesi langsung dimulai. Pelatih memandu, mencatat progres, dan menyesuaikan program untuk Anda.</p></div>
+    <div class="step reveal d3"><div class="step-n">04</div><div class="step-ic">📊</div><div class="step-t">Pantau Progres</div><p class="step-d">Dashboard personal menampilkan perkembangan dari setiap sesi dalam grafik yang jelas.</p></div>
+  </div>
+</section>
+
+<!-- ==================== COACHES ==================== -->
+<section class="coaches" id="coaches">
+  <div class="coaches-hd">
+    <div class="reveal">
+      <span class="lbl">Pelatih Pilihan</span>
+      <h2 class="ttl">TEMUI <em>MEISTER</em><br>TERBAIK KAMI</h2>
+    </div>
+    <a href="#cta" class="btn-outline reveal">Lihat Semua →</a>
+  </div>
+  <div class="grid4" id="coachGrid"></div>
+</section>
+
+<!-- ==================== SPORTS ==================== -->
+<section class="sports">
+  <span class="lbl">30+ Cabang Olahraga</span>
+  <h2 class="ttl">APAPUN<br><em>OLAHRAGAMU</em></h2>
+  <div class="sports-grid reveal" id="sportsGrid"></div>
+</section>
+
+<!-- ==================== FEATURES ==================== -->
+<section class="feats" id="features">
+  <div class="reveal" style="max-width:580px">
+    <span class="lbl">Platform Unggulan</span>
+    <h2 class="ttl">SEMUA YANG<br>ANDA <em>BUTUHKAN</em></h2>
+  </div>
+  <div class="feat-grid reveal">
+    <div class="feat-list">
+      <div class="fi on"><div class="fi-hd"><div class="fi-ic">✅</div><div class="fi-t">Verified Meister Badge</div></div><p class="fi-d">Setiap coach diverifikasi lisensi, latar belakang, dan kualitas coaching sebelum tampil di platform.</p></div>
+      <div class="fi"><div class="fi-hd"><div class="fi-ic">🤖</div><div class="fi-t">AI Coach Matching</div></div><p class="fi-d">Algoritma cerdas mencocokkan Anda dengan pelatih terbaik berdasarkan goals dan preferensi Anda.</p></div>
+      <div class="fi"><div class="fi-hd"><div class="fi-ic">📹</div><div class="fi-t">Video Call Built-in</div></div><p class="fi-d">Tidak perlu aplikasi eksternal. Sesi online langsung di platform dengan kualitas HD.</p></div>
+      <div class="fi"><div class="fi-hd"><div class="fi-ic">💬</div><div class="fi-t">In-App Messaging</div></div><p class="fi-d">Chat langsung dengan coach sebelum & sesudah sesi. Kirim video latihan untuk feedback.</p></div>
+    </div>
+    <div class="feat-vis">
+      <div class="mock-card">
+        <div class="mock-hd"><div class="mock-av">RK</div></div>
+        <div class="mock-body">
+          <div class="mock-name">Rizky Kurniawan</div>
+          <div class="mock-sport">⚽ PELATIH FUTSAL PROFESIONAL</div>
+          <div class="mock-tags"><span class="tg">Bandung</span><span class="tg">Online</span></div>
+          <div class="mock-stars">★★★★★ <span style="color:var(--muted);font-size:.72rem">(128 ulasan)</span></div>
+          <div class="vbdg">✓ VERIFIED MEISTER</div>
+        </div>
+        <div class="mock-ft">
+          <div><div style="font-family:var(--font-u);font-weight:800;font-size:.9rem">Rp 250.000</div><div style="color:var(--muted);font-size:.68rem">/sesi</div></div>
+          <span class="bk-btn">BOOKING</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-grid reveal" style="margin-top:56px;direction:rtl">
+    <div style="direction:ltr">
+      <div class="feat-list">
+        <div class="fi on"><div class="fi-hd"><div class="fi-ic">📊</div><div class="fi-t">Progress Dashboard</div></div><p class="fi-d">Pantau perkembangan setiap sesi dalam grafik mudah dibaca. Lihat hasil nyata dari waktu ke waktu.</p></div>
+        <div class="fi"><div class="fi-hd"><div class="fi-ic">🎯</div><div class="fi-t">Goal Tracking</div></div><p class="fi-d">Set target bersama coach dan pantau perjalanan menuju goal dengan milestone yang jelas.</p></div>
+        <div class="fi"><div class="fi-hd"><div class="fi-ic">🎥</div><div class="fi-t">Video Session Library</div></div><p class="fi-d">Rekaman sesi tersimpan otomatis. Review kembali teknik yang diajarkan kapanpun.</p></div>
+      </div>
+    </div>
+    <div style="direction:ltr">
+      <div class="feat-vis">
+        <div class="prog-wrap">
+          <div class="prog-hd">📈 Progress Mingguan — Dani S.</div>
+          <div class="prog-item"><div class="prog-lbl"><span>Teknik Dasar</span><span>87%</span></div><div class="prog-bar"><div class="prog-fill" style="width:87%"></div></div></div>
+          <div class="prog-item"><div class="prog-lbl"><span>Kecepatan</span><span>72%</span></div><div class="prog-bar"><div class="prog-fill" style="width:72%;animation-delay:.2s"></div></div></div>
+          <div class="prog-item"><div class="prog-lbl"><span>Stamina</span><span>65%</span></div><div class="prog-bar"><div class="prog-fill" style="width:65%;animation-delay:.4s"></div></div></div>
+          <div class="prog-item"><div class="prog-lbl"><span>Taktik</span><span>91%</span></div><div class="prog-bar"><div class="prog-fill" style="width:91%;animation-delay:.6s"></div></div></div>
+          <div class="prog-ms"><div class="prog-ms-t">🏆 Milestone Tercapai!</div><div class="prog-ms-s">Level Intermediate — 12 sesi selesai</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRICING ==================== -->
+<section class="pricing" id="pricing">
+  <div class="pricing-hd reveal">
+    <span class="lbl">Harga Transparan</span>
+    <h2 class="ttl">PAKET YANG <em>TEPAT</em><br>UNTUK ANDA</h2>
+    <p style="color:var(--muted);margin-top:14px;font-size:.95rem">Mulai gratis, upgrade kapanpun. Tidak ada biaya tersembunyi.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pc reveal">
+      <div class="pc-plan">Starter</div>
+      <div class="pc-price">Rp0<sub>/bulan</sub></div>
+      <div class="pc-per">Gratis selamanya</div>
+      <div class="pc-feats">
+        <div class="pcf"><span class="pcf-ck">✓</span> Browse semua coach</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> 1 sesi percobaan gratis</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Chat dengan coach</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Progress tracker dasar</div>
+      </div>
+      <a id="cta-starter" href="#" target="_blank" class="pc-cta">Mulai Gratis</a>
+    </div>
+    <div class="pc hot reveal d1">
+      <div class="pc-badge">PALING POPULER</div>
+      <div class="pc-plan">Pro</div>
+      <div class="pc-price" id="pro-price-display">Rp250<sub>rb/bln</sub></div>
+      <div class="pc-per">Ditagih tahunan</div>
+      <div class="pc-feats">
+        <div class="pcf"><span class="pcf-ck">✓</span> Semua fitur Starter</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Diskon 10% semua sesi</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Progress dashboard lengkap</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Library video sesi</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Priority booking</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Akses Meisterclass Academy</div>
+      </div>
+      <a id="cta-pro" href="#" target="_blank" class="pc-cta">Coba 14 Hari Gratis</a>
+    </div>
+    <div class="pc reveal d2">
+      <div class="pc-plan">Corporate</div>
+      <div class="pc-price" style="font-size:2.2rem">Custom</div>
+      <div class="pc-per">Untuk tim & organisasi</div>
+      <div class="pc-feats">
+        <div class="pcf"><span class="pcf-ck">✓</span> Semua fitur Pro</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Multi-user management</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Dedicated account manager</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Custom program & branding</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Laporan bulanan</div>
+        <div class="pcf"><span class="pcf-ck">✓</span> Invoice & kontrak resmi</div>
+      </div>
+      <a id="cta-corp" href="#" target="_blank" class="pc-cta">Hubungi Sales</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="testi">
+  <span class="lbl">Testimoni Nyata</span>
+  <h2 class="ttl">MEREKA SUDAH<br><em>MERASAKAN</em>NYA</h2>
+  <div class="testi-grid">
+    <div class="tc reveal"><div class="tc-stars">★★★★★</div><p class="tc-txt">"Dalam 2 bulan latihan dengan Coach Ahmad, teknik dasar futsal saya meningkat drastis. Dashboard progress-nya bikin saya makin semangat!"</p><div class="tc-auth"><div class="tc-av">D</div><div><div class="tc-name">Dani Setiawan</div><div class="tc-sport">Futsal • Bandung</div></div></div></div>
+    <div class="tc reveal d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">"Anak saya 9 tahun langsung cocok sama Coach Sari. Booking gampang, bisa online dari rumah, perkembangan renangnya signifikan!"</p><div class="tc-auth"><div class="tc-av">L</div><div><div class="tc-name">Lina Hartati</div><div class="tc-sport">Orang Tua Atlet • Bandung</div></div></div></div>
+    <div class="tc reveal d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">"Sebagai pelatih, Meisterclass.sport membantu saya dapat klien lebih banyak tanpa ribet. Pendapatan naik 3x lipat dalam 3 bulan!"</p><div class="tc-auth"><div class="tc-av">B</div><div><div class="tc-name">Budi Santoso</div><div class="tc-sport">Coach Badminton • Bandung</div></div></div></div>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="cta-sec" id="cta">
+  <div class="cta-content">
+    <span class="lbl">Bergabung Sekarang</span>
+    <h2 class="cta-ttl">JADILAH<br><em>LEBIH BAIK</em><br>HARI INI</h2>
+    <p class="cta-sub">Ribuan atlet dan pelatih sudah bergabung. Giliran Anda merasakan perbedaannya.</p>
+    <div class="cta-form">
+      <input class="cta-input" type="email" id="ctaEmail" placeholder="Masukkan email Anda..."/>
+      <button class="cta-btn" id="ctaBtn">Daftar via WA →</button>
+    </div>
+    <p style="color:var(--muted);font-size:.72rem;margin-top:11px;text-align:center">Tidak perlu kartu kredit · Gratis selamanya</p>
+    <div class="cta-nums">
+      <div class="cta-stat"><div class="cn-n">500+</div><div class="cn-l">Coach Aktif</div></div>
+      <div class="cta-stat"><div class="cn-n">10.000+</div><div class="cn-l">Pengguna</div></div>
+      <div class="cta-stat"><div class="cn-n">30+</div><div class="cn-l">Cabang Olahraga</div></div>
+      <div class="cta-stat"><div class="cn-n">4.9★</div><div class="cn-l">Rating Rata-rata</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <span class="ft-logo">MEISTER<span>CLASS</span>.SPORT</span>
+      <p class="ft-desc" id="ft-desc">Platform marketplace pelatih olahraga terpercaya di Bandung & Indonesia. Didirikan oleh Deo Farid Anggara untuk menghubungkan pelatih profesional dengan individu, tim, dan organisasi.</p>
+      <div class="ft-socials">
+        <a id="ft-ig" href="#" target="_blank" class="soc" title="Instagram">📷</a>
+        <a id="ft-wa" href="#" target="_blank" class="soc" title="WhatsApp">💬</a>
+        <a id="ft-em" href="#" class="soc" title="Email">✉️</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-col-t">Platform</div>
+      <ul class="ft-links">
+        <li><a href="#coaches">Cari Pelatih</a></li>
+        <li><a id="ft-join-coach" href="#" target="_blank">Jadi Pelatih</a></li>
+        <li><a href="#features">Meisterclass Academy</a></li>
+        <li><a href="#pricing">Solusi Korporat</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-col-t">Perusahaan</div>
+      <ul class="ft-links">
+        <li><a href="#cta">Tentang Kami</a></li>
+        <li><a href="#cta">Blog</a></li>
+        <li><a id="ft-email-link" href="#">Kontak</a></li>
+        <li><a id="ft-wa2" href="#" target="_blank">Karir</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-col-t">Dukungan</div>
+      <ul class="ft-links">
+        <li><a href="#howit">Cara Booking</a></li>
+        <li><a href="#pricing">Harga & Paket</a></li>
+        <li><a id="ft-wa3" href="#" target="_blank">WhatsApp Support</a></li>
+        <li><a href="#coaches">Komunitas</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p class="ft-copy" id="ft-copy"></p>
+    <div class="ft-legal">
+      <a href="#">Syarat & Ketentuan</a>
+      <a href="#">Kebijakan Privasi</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== MODAL COACH ==================== -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <span class="modal-emoji" id="mEmoji"></span>
+    <div class="modal-name" id="mName"></div>
+    <div class="modal-sport" id="mSport"></div>
+    <div class="modal-info" id="mInfo"></div>
+    <p class="modal-desc" id="mDesc"></p>
+    <div class="modal-price" id="mPrice"></div>
+    <div class="modal-perlbl">per sesi (60 menit)</div>
+    <a class="modal-wa" id="mWA" href="#" target="_blank">📱 Booking via WhatsApp</a>
+  </div>
+</div>
+
+<!-- ==================== SCRIPT ==================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ── 1. Isi semua data bisnis ke HTML ──
+  function waLink(num, msg) { return `https://wa.me/${num}${msg ? '?text=' + encodeURIComponent(msg) : ''}`; }
+
+  // Nav CTA
+  document.getElementById('nav-cta-li').innerHTML =
+    `<a href="${waLink(BISNIS.wa,'Halo, saya ingin mencari pelatih di Meisterclass.sport')}" target="_blank" class="nav-cta">Mulai Gratis</a>`;
+
+  // Hero
+  document.querySelectorAll('[id=hero-kota], .hero-kota-ref').forEach(el => el.textContent = BISNIS.kota);
+  document.getElementById('hero-cta').href = waLink(BISNIS.wa, 'Halo, saya ingin mencari pelatih di Meisterclass.sport');
+
+  // Pricing CTAs
+  document.getElementById('cta-starter').href = waLink(BISNIS.wa, 'Halo, saya ingin daftar paket Starter gratis');
+  document.getElementById('cta-pro').href    = waLink(BISNIS.wa, 'Halo, saya ingin berlangganan paket Pro');
+  document.getElementById('cta-corp').href   = waLink(BISNIS.wa, 'Halo, saya tertarik paket Corporate');
+  document.getElementById('pro-price-display').innerHTML = `${HARGA.pro}<sub>rb/bln</sub>`;
+
+  // CTA button
+  document.getElementById('ctaBtn').onclick = () => window.open(waLink(BISNIS.wa), '_blank');
+
+  // Footer
+  document.getElementById('ft-ig').href       = `https://instagram.com/${BISNIS.instagram}`;
+  document.getElementById('ft-wa').href        = waLink(BISNIS.wa);
+  document.getElementById('ft-em').href        = `mailto:${BISNIS.email}`;
+  document.getElementById('ft-wa2').href       = waLink(BISNIS.wa);
+  document.getElementById('ft-wa3').href       = waLink(BISNIS.wa);
+  document.getElementById('ft-email-link').href= `mailto:${BISNIS.email}`;
+  document.getElementById('ft-join-coach').href= waLink(BISNIS.wa, 'Halo, saya ingin mendaftar sebagai pelatih di Meisterclass.sport');
+  document.getElementById('ft-desc').innerHTML =
+    `Platform marketplace pelatih olahraga terpercaya di <strong>${BISNIS.kota}</strong> & Indonesia. Didirikan oleh <strong>${BISNIS.nama}</strong>.`;
+  document.getElementById('ft-copy').textContent =
+    `© ${new Date().getFullYear()} Meisterclass.sport by ${BISNIS.nama}. ${BISNIS.kota}, Indonesia.`;
+
+  // ── 2. Render ticker ──
+  const tSports = ['FUTSAL','RENANG','BADMINTON','TENIS','LARI','BOXING','YOGA','BASKET','GIMNASTIK','CYCLING'];
+  const tEl = document.getElementById('ticker');
+  const html = tSports.map(s => `<span class="t-item"><span class="t-dot"></span>${s}</span>`).join('');
+  tEl.innerHTML = html + html;
+
+  // ── 3. Render dot grid ──
+  const dg = document.getElementById('dotGrid');
+  if (dg) dg.innerHTML = Array(42).fill('<span></span>').join('');
+
+  // ── 4. Render pelatih ──
+  const grid = document.getElementById('coachGrid');
+  const delays = ['','d1','d2','d3'];
+  grid.innerHTML = PELATIH.map((p, i) => `
+    <div class="cc reveal ${delays[i] || ''}" onclick="openModal(${i})">
+      <div class="cc-top" style="background:linear-gradient(135deg,${p.warna},rgba(0,0,0,0.06))">
+        ${p.emoji}
+        <span class="cc-stag">${p.olahraga}</span>
+      </div>
+      <div class="cc-body">
+        <div class="cc-name">${p.nama}</div>
+        <div class="cc-title">${p.judul}</div>
+        <div class="cc-rat">
+          <span class="cc-rat-n">★ ${p.rating}</span>
+          <span class="cc-rev">(${p.ulasan} ulasan)</span>
+        </div>
+        <div class="cc-ft">
+          <div><div class="cc-pr">${p.harga}</div><div class="cc-prl">per sesi</div></div>
+          <span class="bk-btn">Booking</span>
+        </div>
+      </div>
+    </div>`).join('');
+
+  // ── 5. Render olahraga ──
+  document.getElementById('sportsGrid').innerHTML =
+    OLAHRAGA.map(o => `<div class="sp"><span>${o[0]}</span> ${o[1]}</div>`).join('');
+
+  // ── 6. Modal ──
+  window.openModal = function(i) {
+    const p = PELATIH[i];
+    document.getElementById('mEmoji').textContent   = p.emoji;
+    document.getElementById('mName').textContent    = p.nama;
+    document.getElementById('mSport').textContent   = p.olahraga;
+    document.getElementById('mInfo').innerHTML =
+      `<span class="modal-tag">★ ${p.rating} (${p.ulasan} ulasan)</span>
+       <span class="modal-tag">📍 ${p.lokasi}</span>
+       <span class="modal-tag">✓ Verified Meister</span>`;
+    document.getElementById('mDesc').textContent    = p.deskripsi;
+    document.getElementById('mPrice').textContent   = p.harga;
+    document.getElementById('mWA').href = waLink(p.wa || BISNIS.wa, `Halo, saya ingin booking sesi dengan ${p.nama}`);
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  document.getElementById('modalClose').onclick =
+  document.getElementById('modalOverlay').onclick = function(e) {
+    if (e.target === this || e.target.id === 'modalClose') {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // ── 7. Scroll reveal ──
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries =>
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }), { threshold: 0.08 });
+  reveals.forEach(el => obs.observe(el));
+
+  // ── 8. Feature item click ──
+  document.querySelectorAll('.fi').forEach(fi => {
+    fi.addEventListener('click', () => {
+      fi.closest('.feat-list').querySelectorAll('.fi').forEach(f => f.classList.remove('on'));
+      fi.classList.add('on');
+    });
+  });
+
+  // ── 9. Nav scroll ──
+  const navEl = document.getElementById('nav');
+  window.addEventListener('scroll', () => navEl.classList.toggle('scrolled', scrollY > 80));
+
+  // ── 10. Hamburger ──
+  const hbg  = document.getElementById('hamburger');
+  const nl   = document.getElementById('navLinks');
+  hbg.addEventListener('click', () => {
+    nl.classList.toggle('open');
+    hbg.textContent = nl.classList.contains('open') ? '✕' : '☰';
+  });
+
+  // ── 11. Custom cursor ──
+  const c1 = document.getElementById('cur'), c2 = document.getElementById('cur2');
+  let mx = 0, my = 0, fx = 0, fy = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    c1.style.cssText = `left:${mx - 5}px;top:${my - 5}px`;
+  });
+  (function anim() {
+    fx += (mx - fx) * .13; fy += (my - fy) * .13;
+    c2.style.cssText = `left:${fx - 16}px;top:${fy - 16}px`;
+    requestAnimationFrame(anim);
+  })();
+  document.querySelectorAll('a,button,.cc,.sp,.fi,.bk-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => { c1.style.transform = 'scale(2)'; c2.style.transform = 'scale(1.5)'; });
+    el.addEventListener('mouseleave', () => { c1.style.transform = ''; c2.style.transform = ''; });
+  });
+
+  // ── 12. Smooth scroll ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+});
+</script>
+</body>
+</html>
